@@ -50,9 +50,8 @@ def dns(file):
                 if(len(tmp)>0 and count>1):
                     q=tmp[1:].index(0)
                     print('\nttl',int.from_bytes(tmp[1:q+1], byteorder='big', signed=False),end=' ')
-                    print('ip',tmp[q+2],end=' ')
-                    print(' : ',end=' ')
-                    for i in range(q+3,q+3+4):
+                    print('ip4 : ',end=' ')
+                    for i in range(q+3,q+3+tmp[q+2]):
                         print(tmp[i],end='.')
                 tmp=[]
                 count += 1
@@ -61,9 +60,8 @@ def dns(file):
         if (len(tmp) > 0 and count > 1):
             q = tmp[1:].index(0)
             print('\nttl', int.from_bytes(tmp[1:q + 1], byteorder='big', signed=False), end=' ')
-            print('ip', tmp[q + 2], end=' ')
-            print(' : ', end=' ')
-            for i in range(q + 3, q + 3 + 4):
+            print('ip4 : ', end=' ')
+            for i in range(q + 3, q + 3 + tmp[q + 2]):
                 print(tmp[i], end='.')
     # сервер DNS
     if(list[1] == '\x02'):
