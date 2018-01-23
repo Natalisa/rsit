@@ -131,13 +131,19 @@ def dns(file):
                     print('.', end='')
     f.close()
 
-def dhcp(file,op):
+def dhcp(file):
     f = open(file, 'rb')
     str = f.read()
-    list=[]
-    for i in str[236:]:
-        list.append(hex(i))
-    print(list)
-
-    print('опция',op,list[op])
+    i = 236+4
+    while True:
+        ops = str[i]
+        len = str[i+1]
+        if(len != 0):
+            print('ops',ops, ' l',len,':',end=' ')
+            for j in range(i+2,i+2+len):
+                print(str[j],end=' ')
+            print()
+            i=i+2+len
+        else:
+            break
     f.close()

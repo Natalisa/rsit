@@ -6,7 +6,7 @@ import lib
 # lib.dns('dns-mx-ultibot.bin')
 
 # print('\n\n\n')
-lib.dns('dns-ns-ultibot.bin')
+# lib.dns('dns-ns-ultibot.bin')
 
-# lib.dhcp('dhcp-offer.bin',129)
+lib.dhcp('dhcp-offer.bin')
 
